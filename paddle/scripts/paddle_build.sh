@@ -135,8 +135,8 @@ EOF
         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
         -DWITH_CONTRIB=${WITH_CONTRIB:-ON} \
         -DWITH_ANAKIN=${WITH_ANAKIN:-OFF} \
-        -D CMAKE_CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++ \
-        -D CMAKE_C_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/cc
+        -DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++ \
+        -DCMAKE_C_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/cc
 }
 
 function abort(){
