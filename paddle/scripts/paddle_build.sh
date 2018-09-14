@@ -134,9 +134,7 @@ EOF
         -DWITH_FLUID_ONLY=${WITH_FLUID_ONLY:-OFF} \
         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
         -DWITH_CONTRIB=${WITH_CONTRIB:-ON} \
-        -DWITH_ANAKIN=${WITH_ANAKIN:-OFF} \
-        -DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++ \
-        -DCMAKE_C_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/cc
+        -DWITH_ANAKIN=${WITH_ANAKIN:-OFF}
 }
 
 function abort(){
