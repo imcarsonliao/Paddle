@@ -1,4 +1,3 @@
-set(CMAKE_CXX_FLAGS   "-std=c++11") 
 if(NOT WITH_FLUID_ONLY)
   add_subdirectory(cuda)
   add_subdirectory(function)
