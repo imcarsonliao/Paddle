@@ -13,6 +13,7 @@
 #include "paddle/fluid/operators/bilinear_interp_op.h"
 #include "paddle/fluid/platform/cuda_primitives.h"
 
+
 namespace paddle {
 namespace operators {
 
@@ -20,10 +21,10 @@ using framework::Tensor;
 
 template <typename T>
 __global__ void KeBilinearInterpFw(
-    const T* in, const size_t in_img_h, const size_t in_img_w,
-    const size_t input_h, const size_t input_w, T* out, const size_t out_img_h,
-    const size_t out_img_w, const size_t output_h, const size_t output_w,
-    const size_t num_channels, const T ratio_h, const T ratioW) {
+    const T* in, const int in_img_h, const int in_img_w,
+    const int input_h, const int input_w, T* out, const int out_img_h,
+    const int out_img_w, const int output_h, const int output_w,
+    const int num_channels, const T ratio_h, const T ratioW) {
   int nthreads = output_h * output_w;
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < nthreads) {
@@ -58,10 +59,10 @@ __global__ void KeBilinearInterpFw(
 
 template <typename T>
 __global__ void KeBilinearInterpBw(
-    T* in, const size_t in_img_h, const size_t in_img_w, const size_t input_h,
-    const size_t input_w, const T* out, const size_t out_img_h,
-    const size_t out_img_w, const size_t output_h, const size_t output_w,
-    const size_t num_channels, const T ratio_h, const T ratioW) {
+    T* in, const int in_img_h, const int in_img_w, const int input_h,
+    const int input_w, const T* out, const int out_img_h,
+    const int out_img_w, const int output_h, const int output_w,
+    const int num_channels, const T ratio_h, const T ratioW) {
   int nthreads = output_h * output_w;
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < nthreads) {
